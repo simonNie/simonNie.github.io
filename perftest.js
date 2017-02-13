@@ -2,7 +2,7 @@
 var gl;
 var canvas;
 var shader;
-
+var clickBtn;
 var vertexBufferId, indexBufferId;
 var colorTransformIndex;
 var vertexDataIndex;
@@ -264,6 +264,19 @@ function initVideo(filePath, nextIndex){
     //         startTestOfNextTexture(nextIndex + 1);
     //     });
     // };
+
+    clickBtn = document.getElementById("playBtn");
+    clickBtn.onclick=function(){
+        textureSource.play();
+        textureSource.width = textureSource.videoWidth;
+        textureSource.height = textureSource.videoHeight;
+        console.log(filePath, nextIndex);
+        startStateTests(textureSource, filePath, function() {
+            textureSource.pause();
+            startTestOfNextTexture(nextIndex + 1);
+        });
+    }
+
     return textureSource;
 }
 
@@ -278,7 +291,8 @@ function startTestOfNextTexture(nextIndex) {
             // create a video element and start the load
             textureSource = initVideo(filePath, nextIndex);
             textureSource.src = filePath;
-            textureSource.play();
+            clickBtn.click();
+
         }
         // load image texture
         else {
