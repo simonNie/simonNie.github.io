@@ -278,7 +278,7 @@ function startTestOfNextTexture(nextIndex) {
             // create a video element and start the load
             textureSource = initVideo(filePath, nextIndex);
             textureSource.src = filePath;
-            //textureSource.play();
+            textureSource.play();
         }
         // load image texture
         else {
