@@ -255,15 +255,15 @@ function initVideo(filePath, nextIndex){
         log("Error: " + err + " (errorcode="+textureSource.error.code+")", "color:red;");
     };
 
-    textureSource.oncanplay = function() {
-        textureSource.width = textureSource.videoWidth;
-        textureSource.height = textureSource.videoHeight;
-        console.log(filePath, nextIndex);
-        startStateTests(textureSource, filePath, function() {
-            textureSource.pause();
-            startTestOfNextTexture(nextIndex + 1);
-        });
-    };
+    // textureSource.oncanplay = function() {
+    //     textureSource.width = textureSource.videoWidth;
+    //     textureSource.height = textureSource.videoHeight;
+    //     console.log(filePath, nextIndex);
+    //     startStateTests(textureSource, filePath, function() {
+    //         textureSource.pause();
+    //         startTestOfNextTexture(nextIndex + 1);
+    //     });
+    // };
     return textureSource;
 }
 
